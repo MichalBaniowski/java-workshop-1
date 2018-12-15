@@ -2,3 +2,4 @@
 *.txt
 *.iml
 .out
+*.class
