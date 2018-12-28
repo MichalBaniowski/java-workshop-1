@@ -1,15 +1,20 @@
 package pl.coderslab.workshop1.task2;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Task2 {
     public static void main(String[] args){
         System.out.println("witaj w symulatorze lotto, rozpoczynam losowanie");
-        System.out.format("trafiłes %d liczb",numberOfCorrectGuesses(getLottoNumbers(), getUsernumbers()));
+        ArrayList<Integer> lottoNums = getLottoNumbers();
+        if(args.length == 1 && args[0].equalsIgnoreCase("WhoseYourDaddy")){
+            System.out.print("wylosowane liczby: ");
+            for (int i : lottoNums){
+                System.out.print(i + " ");
+            }
+            System.out.println();
+        }
+        System.out.format("trafiłes %d liczb",numberOfCorrectGuesses(lottoNums, getUsernumbers()));
     }
     static int numberOfCorrectGuesses(ArrayList<Integer> lotto, ArrayList<Integer> user){
         user.removeAll(lotto);
@@ -36,14 +41,10 @@ public class Task2 {
         return scanner.nextInt();
     }
     static ArrayList<Integer> getLottoNumbers(){
-        ArrayList<Integer> lottoNumbers = new ArrayList<>();
-        lottoNumbers = Stream.iterate(1, x->x+1)
-                .limit(49)
-                .collect(Collectors.toCollection(ArrayList::new));
-        Collections.shuffle(lottoNumbers);
-        lottoNumbers = lottoNumbers.stream()
+        return new Random().ints(1,49)
+                .distinct()
                 .limit(6)
+                .boxed()
                 .collect(Collectors.toCollection(ArrayList::new));
-        return lottoNumbers;
     }
 }
