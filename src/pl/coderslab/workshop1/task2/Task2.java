@@ -14,7 +14,9 @@ public class Task2 {
             }
             System.out.println();
         }
-        System.out.format("trafiłes %d liczb",numberOfCorrectGuesses(lottoNums, getUsernumbers()));
+        int numberOfCorrectGuesses = numberOfCorrectGuesses(lottoNums, getUsernumbers());
+        String prompt = numberOfCorrectGuesses > 4 || numberOfCorrectGuesses == 0 ? "liczb" : "liczby";
+        System.out.format("trafiłes %d %s",numberOfCorrectGuesses, prompt);
     }
     static int numberOfCorrectGuesses(ArrayList<Integer> lotto, ArrayList<Integer> user){
         user.removeAll(lotto);
