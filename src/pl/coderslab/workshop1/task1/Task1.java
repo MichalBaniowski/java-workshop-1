@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 public class Task1 {
     public static void main(String[] args){
+        // guesswork game 1
         int random = new Random().nextInt(100)+1;
         int guess = 0;
         int tryCount = 0;

@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 public class Task2 {
     public static void main(String[] args){
+        // lotto game simulator
         System.out.println("witaj w symulatorze lotto, rozpoczynam losowanie");
         ArrayList<Integer> lottoNums = getLottoNumbers();
         if(args.length == 1 && args[0].equalsIgnoreCase("WhoseYourDaddy")){
