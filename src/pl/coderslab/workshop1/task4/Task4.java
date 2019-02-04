@@ -36,7 +36,6 @@ public class Task4 {
         int result = new Random().ints(1, diceNumber + 1)
                 .limit(timesThrown)
                 .sum();
-        System.out.println(addition);
         return result + addition;
     }
 
